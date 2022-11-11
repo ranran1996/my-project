@@ -9,7 +9,7 @@
       </el-form-item>
       <el-form-item>
         <el-button type="type" native-type="submit">立即创建</el-button>
-        <el-button>取消</el-button>
+        <el-button>取消1</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -20,8 +20,8 @@ export default {
     return {
       adminuser: {
         user_name: "",
-        password: ""
-      }
+        password: "",
+      },
     };
   },
   methods: {
@@ -30,22 +30,22 @@ export default {
       //ajax提交
       this.$http
         .post("adminuser", this.adminuser)
-        .then(res => {
+        .then((res) => {
           console.log(res.data);
           //成功后提示信息
           if (res.data.status == 200) {
             this.$message({
               message: "添加用户成功",
-              type: "success"
+              type: "success",
             });
             //成功后跳转到后台用户管理列表页
             this.$router.push("/article/index");
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
-    }
-  }
+    },
+  },
 };
 </script>
