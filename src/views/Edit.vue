@@ -2,7 +2,7 @@
   <div class="edit">
     <el-form ref="form" @submit.native.prevent="update" :model="adminuser" label-width="120px">
       <el-form-item label="管理员名称" prop="username">
-        <el-input v-model="adminuser.user_name" placeholder="管理员名称111"></el-input>
+        <el-input v-model="adminuser.user_name" placeholder="管理员名称111222"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="type" native-type="submit">更新</el-button>
