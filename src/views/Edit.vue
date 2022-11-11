@@ -2,7 +2,7 @@
   <div class="edit">
     <el-form ref="form" @submit.native.prevent="update" :model="adminuser" label-width="120px">
       <el-form-item label="管理员名称" prop="username">
-        <el-input v-model="adminuser.user_name" placeholder="管理员名称"></el-input>
+        <el-input v-model="adminuser.user_name" placeholder="管理员名称111"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="type" native-type="submit">更新</el-button>
@@ -17,8 +17,8 @@ export default {
     return {
       adminuser: {
         user_name: "",
-        password: ""
-      }
+        password: "",
+      },
     };
   },
   created() {
@@ -30,14 +30,14 @@ export default {
       //
       this.$http
         .put(`/adminuser/${this.$route.params.id}`, {
-          user_name: this.adminuser.user_name
+          user_name: this.adminuser.user_name,
         })
-        .then(res => {
+        .then((res) => {
           console.log(res);
           if (res.data.status == 200) {
             this.$message({
               message: "更新用户成功",
-              type: "success"
+              type: "success",
             });
             //跟新成功后跳转
             this.$router.push("/article/index");
@@ -46,7 +46,7 @@ export default {
             this.$message.error(res.data.message);
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     },
@@ -54,14 +54,14 @@ export default {
     result() {
       this.$http
         .get(`/adminuser/${this.$route.params.id}`) //注意这里是$route，不是$router
-        .then(res => {
+        .then((res) => {
           console.log(res.data);
           this.adminuser = res.data.data;
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
-    }
-  }
+    },
+  },
 };
 </script>
